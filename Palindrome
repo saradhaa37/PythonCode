@@ -1,0 +1,16 @@
+import re
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        # Frist step : Convert to lower
+        vPalindromeStr=s.lower()
+        vPalindromeStr=re.sub("[^A-Za-z0-9]+","",vPalindromeStr)
+        vPalindromeStrReversed=vPalindromeStr[::-1]
+        k,validatePalindrome=0,0
+        while k<len(vPalindromeStr):
+            if(vPalindromeStr[k]==vPalindromeStrReversed[k]):
+                validatePalindrome+=1
+            else:
+                return False
+            k+=1
+        if(validatePalindrome==len(vPalindromeStr)):
+            return True        
